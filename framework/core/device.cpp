@@ -124,7 +124,7 @@ Device::Device(const PhysicalDevice &gpu, VkSurfaceKHR surface, std::unordered_m
 	VkDeviceCreateInfo create_info{VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO};
 
 	// Latest requested feature will have the pNext's all set up for device creation.
-	create_info.pNext = gpu.get_requested_extension_features();
+	create_info.pNext = gpu.get_extension_feature_chain();
 
 	create_info.pQueueCreateInfos       = queue_create_infos.data();
 	create_info.queueCreateInfoCount    = to_u32(queue_create_infos.size());
